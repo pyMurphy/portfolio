@@ -40,7 +40,6 @@ def rproc(procs):
 
 if __name__ == '__main__':
     procs=kproc('Discord.exe')
-    print(procs)
     cachedir=[os.getenv('APPDATA')+r'\discord\Cache',os.getenv('APPDATA')+r'\discord\GPUCache']
     for dir in cachedir:
         t = threading.Thread(target=dcache,args=(dir,),name='delCache')
