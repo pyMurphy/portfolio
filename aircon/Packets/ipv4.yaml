@@ -1,0 +1,12 @@
+size: 20
+structure:
+  header_length: header(1)
+  dsf: hex(1)
+  total_length: int(2)
+  identification: hex(2)
+  flags: hex(2)
+  ttl: int(1)
+  protocol: protocol(1)
+  checksum: hex(2)
+  source: ip(4)
+  destination: ip(4)

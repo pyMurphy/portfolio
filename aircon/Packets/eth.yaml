@@ -1,0 +1,5 @@
+size: 14
+structure:
+  destination: mac(6)
+  source: mac(6)
+  type: ethertype(2)
