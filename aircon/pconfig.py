@@ -68,7 +68,7 @@ def parseYAML(packet,raw):
     return structure
 
 def load(protocol,raw):
-    with open(f'Packets/{protocol.lower()}.yaml') as f:
+    with open(f'packets/{protocol.lower()}.yaml') as f:
         try:
             packet = yaml.safe_load(f)
         except yaml.YAMLError as e:
