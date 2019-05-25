@@ -66,14 +66,19 @@ import pconfig
 class packet:
     def __init__(self,raw):
         self.raw=raw
-        self.eth={}
-        self.ipv4={}
+        self.type = None
         self.packet=self.deconstruct()
     def deconstruct(self):
-        self.eth = pconfig.load('eth',self.raw[:14])
-        self.ipv4 = pconfig.load('ipv4',self.raw[14:34])
+        eth = pconfig.load('eth',self.raw[:14])
+        self.type = eth['type']
+        if self.type == 'IPv4':
+            ptype = pconfig.load('ipv4',self.raw[14:34])
+        elif self.type == 'ARP':
+            ptype = pconfig.load('arp',self.raw[14:42])
+        return {'eth':eth,self.type.lower():ptype}
 
-p=packet(bytearray.fromhex('400d1037bad0f83441f89a0d0800450000288bb2400040064a2ac0a8001668103c25ab0201bb1ba1885e4765ed7150100dbcb7900000'))
-print(p.eth)
-print(p.ipv4)
+
+# p=packet(bytearray.fromhex('400d1037bad0f83441f89a0d0800450000288bb2400040064a2ac0a8001668103c25ab0201bb1ba1885e4765ed7150100dbcb7900000'))
+# print(p.eth)
+# print(p.ipv4)
 

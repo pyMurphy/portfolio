@@ -1,0 +1,11 @@
+size: 28
+structure:
+  hardware_type: hex(2)
+  protocol_type: ethertype(2)
+  hardware_size: int(1)
+  protocol_size: int(1)
+  opcode: int(2)
+  sender_mac: mac(6)
+  sender_ip: ip(4)
+  target_mac: mac(6)
+  target_ip: ip(4)
