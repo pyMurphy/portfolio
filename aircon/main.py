@@ -40,12 +40,6 @@ def startup():
 Type 'help' for a list of commands...\n
 {colors.ENDC}''')
 
-def listen():
-    while True:
-        f = s.recv(256)
-        p = raw.packet(f)
-        print(''.join(p.content))
-
 # TERMINAL CLASS TO HANDLE INPUT FROM USER
 
 class terminal:
